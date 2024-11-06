@@ -1,0 +1,16 @@
+version: "3"
+
+
+services: 
+  web:
+    build: fastapi
+    ports: 
+      - 8000:8000
+    volumes:
+      - ./fastapi:/app
+    networks:
+      - snaplines-net
+
+networks:
+  snaplines-net:
+    driver: bridge
