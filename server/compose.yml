@@ -10,7 +10,20 @@ services:
       - ./fastapi:/app
     networks:
       - snaplines-net
+  ollama:
+    build: ollama
+    ports: 
+      - 11434:11434
+    volumes:
+      - ollama-service:/ollama
+    networks:
+      - snaplines-net
+    entrypoint: ['usr/bin/bash', 'pull-bakllava.sh']
 
 networks:
   snaplines-net:
     driver: bridge
+
+volumes:
+  ollama-service:
+    driver: local
