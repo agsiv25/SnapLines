@@ -1,13 +1,15 @@
 version: "3"
 
-
 services: 
   web:
     build: fastapi
     ports: 
       - 8000:8000
+    env_file:
+      - .env
     volumes:
-      - ./fastapi:/app
+      - ./fastapi:/app  
+      - shared-images:/shared 
     networks:
       - snaplines-net
   ollama:
@@ -15,7 +17,8 @@ services:
     ports: 
       - 11434:11434
     volumes:
-      - ollama-service:/ollama
+      - ollama-service:/ollama 
+      - shared-images:/shared 
     networks:
       - snaplines-net
     entrypoint: ['usr/bin/bash', 'pull-bakllava.sh']
@@ -26,4 +29,6 @@ networks:
 
 volumes:
   ollama-service:
+    driver: local
+  shared-images:  
     driver: local
