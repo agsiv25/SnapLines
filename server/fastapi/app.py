@@ -64,33 +64,38 @@ async def ask(prompt: str):
     
     return Response(content=res.text, media_type="application/json")
 
-# @app.post('/football')
-# async def football(file: UploadFile = File(...)):
+@app.post('/football')
+async def football(file: UploadFile = File(...)):
 
-#     if not file.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-#         raise HTTPException(status_code=400, detail="Invalid file type. Only PNG, JPG, and JPEG are supported.")
+    if not file.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
+        raise HTTPException(status_code=400, detail="Invalid file type. Only PNG, JPG, and JPEG are supported.")
     
-#     file_path = SHARED_DIR / file.filename
-#     with file_path.open("wb") as buffer:
-#         shutil.copyfileobj(file.file, buffer)
+    file_path = SHARED_DIR / file.filename
+    with file_path.open("wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
 
-#     prompt = f"Which two teams are playing in this image: \"/shared/{file.filename}\""
+    prompt = f"Which two teams are playing in this image: \"/shared/{file.filename}\""
 
-#     try:
-#         async with httpx.AsyncClient(timeout=600) as client:
-#             res = await client.post('http://ollama:11434/api/generate', json={
-#                 "prompt": prompt,
-#                 "stream": False,
-#                 "model": "bakllava"
-#             })
-#             res.raise_for_status()
-#     except httpx.RequestError as e:
-#         return JSONResponse(content={"error": str(e)}, status_code=500)
+    try:
+        async with httpx.AsyncClient(timeout=600) as client:
+            res = await client.post('http://ollama:11434/api/generate', json={
+                "prompt": prompt,
+                "stream": False,
+                "model": "bakllava"
+            })
+            res.raise_for_status()
+    except httpx.RequestError as e:
+        return JSONResponse(content={"error": str(e)}, status_code=500)
     
 
-#     file_path.unlink(missing_ok=True)
+    file_path.unlink(missing_ok=True)
 
-#     return Response(content=res.text, media_type="application/json")
+    message_content = json.loads(res.text)["text"]
+    
+    if validate_nfl_teams(message_content):
+        return JSONResponse(content={"response": message_content})
+    else:
+        raise HTTPException(status_code=400, detail="Unable to identify teams.")
 
 @app.post('/test')
 async def test_prompt(
