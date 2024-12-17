@@ -94,7 +94,7 @@ async def football(file: UploadFile = File(...)):
     with file_path.open("wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    prompt = f"Which two teams are playing in this image: \"/shared/{file.filename}\""
+    prompt = f"what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams {team_list}. Make sure to return the team names exactly as they appear in the list. \"/shared/{file.filename}\""
 
     try:
         async with httpx.AsyncClient(timeout=600) as client:
