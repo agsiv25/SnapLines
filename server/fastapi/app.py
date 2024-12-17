@@ -9,11 +9,9 @@ import json
 import re
 import time
 from urllib.parse import unquote
-from openai import OpenAI
 
 app = FastAPI()
 
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 team_list = [
     "Arizona Cardinals", "Atlanta Falcons", "Baltimore Ravens", "Buffalo Bills",
@@ -117,57 +115,3 @@ async def football(file: UploadFile = File(...)):
     else:
         raise HTTPException(status_code=400, detail="Unable to identify teams.")
 
-@app.post('/test')
-async def test_prompt(
-    file: UploadFile = File(...),
-):
-    
-    prompt = f"what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams {team_list}. Make sure to return the team names exactly as they appear in the list."
-    
-    if not file.filename.lower().endswith(('.png', '.jpg', '.jpeg')):
-        raise HTTPException(status_code=400, detail="Invalid file type. Only PNG, JPG, and JPEG are supported.")
-    
-    
-    file_path = SHARED_DIR / file.filename
-    with file_path.open("wb") as buffer:
-        shutil.copyfileobj(file.file, buffer)
-
-    
-    base64_image = encode_image(str(file_path))
-    
-    messages = [
-        {
-            "role": "user",
-            "content": [
-                {
-                    "type": "text",
-                    "text": prompt,
-                },
-                {
-                    "type": "image_url",
-                    "image_url": {
-                        "url": f"data:image/jpeg;base64,{base64_image}",
-                    },
-                },
-            ],
-        }
-    ]
-
-    try:
-        
-        response = client.chat.completions.create(
-            model="gpt-4o-mini",
-            messages=messages,
-        )
-    except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Error interacting with OpenAI API: {str(e)}")
-    finally:
-        file_path.unlink(missing_ok=True)
-    
-    print(response.json())
-    response_json = json.loads(response.json())
-    message_content = response_json["choices"][0]["message"]["content"]
-    if validate_nfl_teams(message_content):
-        return JSONResponse(content={"response": message_content})
-    else:
-        raise HTTPException(status_code=400, detail="Unable to identify teams.")
