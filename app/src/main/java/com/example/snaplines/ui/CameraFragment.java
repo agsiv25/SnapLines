@@ -223,6 +223,10 @@ public class CameraFragment extends Fragment {
 
     private void sendPhoto() {
 
+        // Show loading spinner
+        View progressOverlay = requireView().findViewById(R.id.progress_overlay);
+        progressOverlay.setVisibility(View.VISIBLE);
+
         // Decode and compress the image
         Bitmap bitmap = BitmapFactory.decodeFile(capturedPhotoFile.getAbsolutePath());
         ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
@@ -238,6 +242,9 @@ public class CameraFragment extends Fragment {
         apiService.uploadImage(part).enqueue(new Callback<UploadResponse>() {
             @Override
             public void onResponse(@NonNull Call<UploadResponse> call, @NonNull Response<UploadResponse> response) {
+                // Hide the overlay
+                progressOverlay.setVisibility(View.GONE);
+
                 UploadResponse uploadResponse = response.body();
 
                 if (response.isSuccessful() && uploadResponse != null) {
@@ -263,6 +270,9 @@ public class CameraFragment extends Fragment {
 
             @Override
             public void onFailure(@NonNull Call<UploadResponse> call, @NonNull Throwable t) {
+                // Hide the overlay
+                progressOverlay.setVisibility(View.GONE);
+
                 new Handler(Looper.getMainLooper()).post(() ->
                         Toast.makeText(requireContext(), "Failed to use photo. Please try again.", Toast.LENGTH_LONG).show()
                 );

@@ -12,7 +12,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -30,17 +29,15 @@ import com.example.snaplines.domain.Bookmaker;
 import com.example.snaplines.domain.Game;
 import com.example.snaplines.domain.Market;
 import com.example.snaplines.domain.Outcome;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 
-import java.io.IOException;
-import java.io.InputStream;
 import java.time.OffsetDateTime;
 import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -232,6 +229,11 @@ public class HomeFragment extends Fragment {
 
                         bettingLinesByMarket.get(marketKey).add(bettingLine);
                     }
+
+                    // Sort betting lines by payout, so that the best paying lines appear at the top
+                    // Suggested during ECE Capstone event
+                    bettingLinesByMarket.get(marketKey).sort((o1, o2) ->
+                            Double.compare(Math.abs(o2.getPrice()), Math.abs(o1.getPrice())));
                 }
             }
 
