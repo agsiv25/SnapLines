@@ -11,7 +11,7 @@ public class Outcome {
     private String description;
 
     @JsonProperty("price")
-    private double price;
+    private int price;
 
     @JsonProperty("point")
     private double point;
@@ -33,11 +33,11 @@ public class Outcome {
         this.name = name;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

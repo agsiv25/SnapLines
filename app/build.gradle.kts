@@ -1,5 +1,16 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
+}
+
+val secretsFile = rootProject.file("secrets.properties")
+val secrets = Properties()
+
+if (secretsFile.exists()) {
+    secrets.load(secretsFile.inputStream())
+} else {
+    throw GradleException("secrets.properties file is missing. Please add it to the root directory.")
 }
 
 android {
@@ -24,6 +35,9 @@ android {
                 "proguard-rules.pro"
             )
         }
+        all {
+            buildConfigField("String", "API_KEY", "\"${secrets["API_KEY"]}\"")
+        }
     }
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
@@ -31,8 +45,10 @@ android {
     }
     buildFeatures {
         viewBinding = true
+        buildConfig = true
     }
 }
+
 
 dependencies {
 
@@ -56,4 +72,7 @@ dependencies {
 
     implementation (libs.jackson.databind)
     implementation (libs.jackson.datatype.jsr310)
+    implementation (libs.retrofit)
+    implementation (libs.converter.jackson)
+    implementation (libs.logging.interceptor)
 }

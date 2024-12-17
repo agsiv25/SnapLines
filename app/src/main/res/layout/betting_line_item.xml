@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/betting_line_card"
     android:layout_width="match_parent"
-    android:layout_height="160dp"
+    android:layout_height="176dp"
     android:layout_margin="8dp"
     app:cardElevation="4dp"
     app:cardCornerRadius="8dp">
@@ -16,22 +16,41 @@
 
         <TextView
             android:id="@+id/name"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="18sp"
-            android:textStyle="bold"/>
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/under_over"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="@color/primary_green"
+            android:gravity="center"/>
+
+        <TextView
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/price"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"/>
+            android:textSize="14sp"
+            android:textColor="@color/primary_green"
+            android:gravity="center"/>
 
         <TextView
             android:id="@+id/bookmaker"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="16sp"/>
+            android:textSize="14sp"
+            android:gravity="center"/>
 
         <!-- You can add more views as needed -->
     </LinearLayout>

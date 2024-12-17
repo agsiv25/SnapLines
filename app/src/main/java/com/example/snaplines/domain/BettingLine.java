@@ -6,7 +6,7 @@ public class BettingLine {
     private String market;
     private String name;
     private String description;
-    private double price;
+    private int price;
     private double point;
     private String link;
     private String betLimit;
@@ -43,11 +43,11 @@ public class BettingLine {
         this.description = description;
     }
 
-    public double getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(double price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

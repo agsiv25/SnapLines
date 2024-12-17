@@ -1,0 +1,8 @@
+<shape xmlns:android="http://schemas.android.com/apk/res/android">
+<!--    <solid android:color="@color/primary_green" /> &lt;!&ndash; Replace with your preferred color &ndash;&gt;-->
+    <solid android:color="@android:color/transparent"/> <!-- Transparent fill -->
+    <stroke
+        android:color="@color/primary_green"
+        android:width="4dp" />
+    <corners android:radius="260dp"/> <!-- Adjust to make it perfectly circular -->
+</shape>

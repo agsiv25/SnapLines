@@ -6,10 +6,15 @@ import android.graphics.Matrix;
 import androidx.exifinterface.media.ExifInterface;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.Handler;
+import android.os.Looper;
+import android.util.Base64;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -26,12 +31,17 @@ import androidx.fragment.app.Fragment;
 import androidx.navigation.NavController;
 import androidx.navigation.fragment.NavHostFragment;
 
+import com.example.snaplines.ApiService;
 import com.example.snaplines.R;
 import com.example.snaplines.domain.BettingLinesResponse;
+import com.example.snaplines.domain.UploadResponse;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
 import com.google.common.util.concurrent.ListenableFuture;
 
+import org.json.JSONObject;
+
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
@@ -39,18 +49,35 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Locale;
 import java.util.concurrent.ExecutionException;
+import java.util.concurrent.TimeUnit;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.RequestBody;
+import okhttp3.logging.HttpLoggingInterceptor;
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Response;
+import retrofit2.Retrofit;
+import retrofit2.converter.jackson.JacksonConverterFactory;
 
 public class CameraFragment extends Fragment {
 
     private PreviewView previewView;
     private ImageCapture imageCapture;
     private ImageView capturedImageView;
-    private Button captureButton;
+    private ImageButton captureButton;
     private Button retakeButton;
     private Button sendButton;
     private File capturedPhotoFile;
 
     private ObjectMapper objectMapper;
+    private Retrofit retrofit;
+    private ApiService apiService;
+
+    private final String URL = "https://6q09pnnl-8000.use.devtunnels.ms/";
 
     @Nullable
     @Override
@@ -72,6 +99,23 @@ public class CameraFragment extends Fragment {
             sendPhoto();
         });
 
+        HttpLoggingInterceptor loggingInterceptor = new HttpLoggingInterceptor();
+        loggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BODY);
+        OkHttpClient client = new OkHttpClient.Builder()
+                .addInterceptor(loggingInterceptor)
+                // Increase timeout settings for MLLM to processs the image
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS)
+                .build();
+
+        retrofit = new Retrofit.Builder()
+                .baseUrl(URL)
+                .client(client)
+                .addConverterFactory(JacksonConverterFactory.create(objectMapper))
+                .build();
+
+        apiService = retrofit.create(ApiService.class);
+
         startCamera();
         return view;
     }
@@ -89,7 +133,6 @@ public class CameraFragment extends Fragment {
         }, ContextCompat.getMainExecutor(requireContext()));
     }
 
-
     private void bindPreview(ProcessCameraProvider cameraProvider, PreviewView previewView) {
         CameraSelector cameraSelector = new CameraSelector.Builder()
                 .requireLensFacing(CameraSelector.LENS_FACING_BACK)
@@ -103,7 +146,7 @@ public class CameraFragment extends Fragment {
         cameraProvider.unbindAll();
         cameraProvider.bindToLifecycle(this, cameraSelector, preview, imageCapture);
 
-        Button captureButton = requireView().findViewById(R.id.capture_button);
+        ImageButton captureButton = requireView().findViewById(R.id.capture_button);
         captureButton.setOnClickListener(view -> takePhoto());
     }
 
@@ -127,6 +170,8 @@ public class CameraFragment extends Fragment {
     private void displayCapturedPhoto(String photoPath) {
         // Load the captured image into the ImageView
         Bitmap bitmap = BitmapFactory.decodeFile(photoPath);
+
+        // Image sometimes doesn't save orientated correctly, so fix it if needed
         bitmap = rotateImageIfRequired(bitmap, photoPath);
         capturedImageView.setImageBitmap(bitmap);
 
@@ -176,33 +221,53 @@ public class CameraFragment extends Fragment {
         captureButton.setVisibility(View.VISIBLE);
     }
 
-    // TODO
     private void sendPhoto() {
-        // Implement the logic to send the photo (e.g., share via email, upload, etc.)
-//        Toast.makeText(requireContext(), "Sending photo: " + capturedPhotoFile.getAbsolutePath(), Toast.LENGTH_SHORT).show();
 
-        // Simulate the server response
-        String team1 = "Packers";
-        String team2 = "Bears";
+        // Decode and compress the image
+        Bitmap bitmap = BitmapFactory.decodeFile(capturedPhotoFile.getAbsolutePath());
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
 
-        // Simulate sports betting API response
-        String bettingLines = "";
-        try (InputStream is = requireContext().getAssets().open("nfl_lines.json")) {
-            BettingLinesResponse bettingLinesResponse = objectMapper.readValue(is, BettingLinesResponse.class);
-            bettingLines = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(bettingLinesResponse);
-        } catch (IOException e) {
-            Toast.makeText(requireContext(), "Error loading mock response", Toast.LENGTH_SHORT).show();
-            e.printStackTrace();
-        }
+        // Compress the image to 75% size so its not too big for the MLLM
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 75, outputStream);
+        byte[] compressedImageBytes = outputStream.toByteArray();
 
-        // Navigate to the home fragment and pass the data
-        Bundle bundle = new Bundle();
-        bundle.putString("team1", team1);
-        bundle.putString("team2", team2);
-        bundle.putString("bettingLines", bettingLines);
+        // Create RequestBody for the compressed image data
+        RequestBody requestBody = RequestBody.create(compressedImageBytes, MediaType.parse("image/jpeg"));
+        MultipartBody.Part part = MultipartBody.Part.createFormData("file", capturedPhotoFile.getName(), requestBody);
 
-        NavController navController = NavHostFragment.findNavController(this);
-        navController.navigate(R.id.navigation_home, bundle);
+        apiService.uploadImage(part).enqueue(new Callback<UploadResponse>() {
+            @Override
+            public void onResponse(@NonNull Call<UploadResponse> call, @NonNull Response<UploadResponse> response) {
+                UploadResponse uploadResponse = response.body();
+
+                if (response.isSuccessful() && uploadResponse != null) {
+                    String[] teams = uploadResponse.getResponse().replace("(", "").replace(")", "").split(",");
+
+                    if (teams.length != 2) {
+                        throw new IllegalArgumentException("Invalid response format");
+                    }
+
+                    // Navigate to the home fragment and pass the 2 teams
+                    Bundle bundle = new Bundle();
+                    bundle.putString("team1", teams[0].trim());
+                    bundle.putString("team2", teams[1].trim());
+
+                    NavController navController = NavHostFragment.findNavController(requireParentFragment());
+                    navController.navigate(R.id.navigation_home, bundle);
+                } else {
+                    new Handler(Looper.getMainLooper()).post(() ->
+                            Toast.makeText(requireContext(), "Failed to use photo. Please try again.", Toast.LENGTH_LONG).show()
+                    );
+                }
+            }
+
+            @Override
+            public void onFailure(@NonNull Call<UploadResponse> call, @NonNull Throwable t) {
+                new Handler(Looper.getMainLooper()).post(() ->
+                        Toast.makeText(requireContext(), "Failed to use photo. Please try again.", Toast.LENGTH_LONG).show()
+                );
+            }
+        });
     }
 
     private File getOutputDirectory() {
