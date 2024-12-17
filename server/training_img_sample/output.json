@@ -1,0 +1,254 @@
+[
+    {
+        "id": "Screen-Shot-2017-11-09-at-12",
+        "image": "Screen-Shot-2017-11-09-at-12.14.09-PM.png",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Atlanta Falcons, New England Patriots)"
+            }
+        ]
+    },
+    {
+        "id": "wisc_isa",
+        "image": "wisc_isa.jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "I can't tell which NFL teams are in the image provided."
+            }
+        ]
+    },
+    {
+        "id": "romo2",
+        "image": "romo2.jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Las Vegas Raiders, Denver Broncos)"
+            }
+        ]
+    },
+    {
+        "id": "raiders",
+        "image": "raiders.jpeg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Las Vegas Raiders, Los Angeles Chargers)"
+            }
+        ]
+    },
+    {
+        "id": "guide-to-tv-graphics-hero",
+        "image": "guide-to-tv-graphics-hero.png",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Dallas Cowboys, Denver Broncos)"
+            }
+        ]
+    },
+    {
+        "id": "football_small",
+        "image": "football_small.jpeg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(New York Jets, Minnesota Vikings)"
+            }
+        ]
+    },
+    {
+        "id": "football_xs",
+        "image": "football_xs.jpeg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(New York Jets, Minnesota Vikings)"
+            }
+        ]
+    },
+    {
+        "id": "football_30",
+        "image": "football_30.jpeg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(New York Jets, Minnesota Vikings)"
+            }
+        ]
+    },
+    {
+        "id": "bears",
+        "image": "bears.jpeg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Chicago Bears, Green Bay Packers)"
+            }
+        ]
+    },
+    {
+        "id": "0gt_dZp5EH5PSYjz",
+        "image": "0gt_dZp5EH5PSYjz.jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Philadelphia Eagles, Baltimore Ravens)"
+            }
+        ]
+    },
+    {
+        "id": "new-fox-graphic1",
+        "image": "new-fox-graphic1.png",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Kansas City Chiefs, Carolina Panthers)"
+            }
+        ]
+    },
+    {
+        "id": "amazon_tnf_lead_image",
+        "image": "amazon_tnf_lead_image.png",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Indianapolis Colts, Denver Broncos)"
+            }
+        ]
+    },
+    {
+        "id": "Screenshot-2024-10-29-081325-832x447",
+        "image": "Screenshot-2024-10-29-081325-832x447.png",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(New York Giants, Pittsburgh Steelers)"
+            }
+        ]
+    },
+    {
+        "id": "1_eluBF0MOTAqNCSc4vCEXmQ",
+        "image": "1_eluBF0MOTAqNCSc4vCEXmQ.png",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Green Bay Packers, Arizona Cardinals)"
+            }
+        ]
+    },
+    {
+        "id": "foxbox4",
+        "image": "foxbox4.jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(San Francisco 49ers, Atlanta Falcons)"
+            }
+        ]
+    },
+    {
+        "id": "NFL-TSN-Example-Augmentation-1",
+        "image": "NFL-TSN-Example-Augmentation-1.jpg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Baltimore Ravens, Cincinnati Bengals)"
+            }
+        ]
+    },
+    {
+        "id": "tnf",
+        "image": "tnf.png",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Kansas City Chiefs, Philadelphia Eagles)"
+            }
+        ]
+    },
+    {
+        "id": "2017-mnf-scorebug_orig",
+        "image": "2017-mnf-scorebug_orig.jpeg",
+        "conversations": [
+            {
+                "from": "human",
+                "value": "what are the two nfl teams in this image, give the answer as (team1, team2) using this list of teams ['Arizona Cardinals', 'Atlanta Falcons', 'Baltimore Ravens', 'Buffalo Bills', 'Carolina Panthers', 'Chicago Bears', 'Cincinnati Bengals', 'Cleveland Browns', 'Dallas Cowboys', 'Denver Broncos', 'Detroit Lions', 'Green Bay Packers', 'Houston Texans', 'Indianapolis Colts', 'Jacksonville Jaguars', 'Kansas City Chiefs', 'Las Vegas Raiders', 'Los Angeles Chargers', 'Los Angeles Rams', 'Miami Dolphins', 'Minnesota Vikings', 'New England Patriots', 'New Orleans Saints', 'New York Giants', 'New York Jets', 'Philadelphia Eagles', 'Pittsburgh Steelers', 'San Francisco 49ers', 'Seattle Seahawks', 'Tampa Bay Buccaneers', 'Tennessee Titans', 'Washington Commanders']"
+            },
+            {
+                "from": "gpt",
+                "value": "(Atlanta Falcons, Tampa Bay Buccaneers)"
+            }
+        ]
+    }
+]
